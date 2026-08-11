@@ -96,7 +96,7 @@ export function HeroSection() {
         >
           <h1
             ref={titleRef}
-            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight will-change-transform"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight will-change-transform"
           >
             <span className="accent-gradient-text inline-block text-glow">
               {band.name}

@@ -41,10 +41,12 @@ export function AboutSection() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl bg-background-soft/60 border border-border p-4 text-center hover:border-accent/40 transition-colors"
+                  className="rounded-2xl bg-background-soft/60 border border-border p-3 sm:p-4 text-center hover:border-accent/40 transition-colors"
                 >
                   <div className="text-accent text-lg mb-1">{stat.icon}</div>
-                  <p className="text-2xl font-black text-foreground">{stat.value}</p>
+                  <p className="text-xl sm:text-2xl font-black text-foreground leading-tight break-words">
+                    {stat.value}
+                  </p>
                   <p className="text-xs text-muted mt-1">{stat.label}</p>
                 </div>
               ))}

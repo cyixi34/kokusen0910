@@ -42,20 +42,22 @@ export function ContactSection() {
 
           <button
             onClick={handleCopy}
-            className="group inline-flex items-center gap-4 window-frame px-8 py-5 hover:border-accent/40 transition-all duration-300 mb-10 mx-auto text-left"
+            className="group window-frame w-full max-w-md sm:max-w-none sm:w-fit px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 hover:border-accent/40 transition-all duration-300 mb-10 mx-auto text-left"
             aria-label="复制邮箱地址"
           >
-            <div className="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center text-background-deep shadow-lg group-hover:scale-110 transition-transform">
-              <Mail className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs tracking-[0.2em] text-muted font-bold">EMAIL</p>
-              <p className="text-lg text-foreground group-hover:text-accent transition-colors">
-                {band.contact.email}
-              </p>
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl accent-gradient flex items-center justify-center text-background-deep shadow-lg group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs tracking-[0.2em] text-muted font-bold">EMAIL</p>
+                <p className="text-base sm:text-lg text-foreground group-hover:text-accent transition-colors break-all leading-snug">
+                  {band.contact.email}
+                </p>
+              </div>
             </div>
             <span
-              className={`flex items-center gap-1 text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${
+              className={`shrink-0 self-start sm:self-auto inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${
                 copied
                   ? "bg-accent/20 text-accent"
                   : "bg-background-soft text-muted group-hover:text-accent"
