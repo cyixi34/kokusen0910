@@ -200,6 +200,25 @@ html.lenis, html.lenis body {
   will-change: transform;
 }
 
+/* Thin horizontal scrollbar for member carousel */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(29, 127, 232, 0.4) transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(29, 127, 232, 0.4);
+  border-radius: 9999px;
+}
+
 /* Scanline / retro display effect */
 .scanlines {
   background: repeating-linear-gradient(
