@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MessageSquare } from "lucide-react";
+import qrPlaceholder from "../../../public/qr-placeholder.svg";
 
 export function GuestbookSection() {
   return (
@@ -21,7 +22,7 @@ export function GuestbookSection() {
         <div className="flex flex-col items-center">
           <div className="window-frame p-6 md:p-8 max-w-sm w-full">
             <Image
-              src="/qr-placeholder.svg"
+              src={qrPlaceholder}
               alt="留言板二维码"
               width={600}
               height={600}
