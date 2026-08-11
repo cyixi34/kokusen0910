@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum GuestbookStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model GuestbookEntry {
+  id        String          @id @default(cuid())
+  name      String
+  message   String
+  status    GuestbookStatus @default(PENDING)
+  likes     Int             @default(0)
+  createdAt DateTime        @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+}
