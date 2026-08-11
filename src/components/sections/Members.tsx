@@ -64,12 +64,9 @@ export function MembersSection() {
   };
 
   return (
-    <section
-      id="members"
-      className="relative h-screen flex flex-col justify-center py-14 md:py-16 px-6 overflow-hidden"
-    >
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="relative mb-6 md:mb-8">
+    <section id="members" className="relative min-h-screen py-24 md:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative mb-8 md:mb-12">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-2/10 border border-accent-2/30 text-accent-2 text-xs tracking-[0.2em] font-bold mb-4">
               ✦ CHARACTER
@@ -100,9 +97,7 @@ export function MembersSection() {
             </button>
           </div>
         </div>
-      </div>
 
-      <div className="w-full max-w-7xl mx-auto flex-1 min-h-0 mt-2">
         <div
           ref={scrollerRef}
           id="members-scroller"
@@ -110,7 +105,7 @@ export function MembersSection() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerEnd}
           onPointerLeave={handlePointerEnd}
-          className="h-full flex overflow-x-auto snap-x snap-mandatory gap-5 pb-3 -mx-6 px-6 sm:mx-auto sm:px-0 sm:max-w-[480px] thin-scrollbar cursor-grab active:cursor-grabbing select-none"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 sm:mx-auto sm:px-0 sm:max-w-[480px] thin-scrollbar cursor-grab active:cursor-grabbing select-none"
         >
           {members.map((member) => (
             <motion.div
@@ -121,10 +116,10 @@ export function MembersSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.55 }}
-              className="snap-center shrink-0 w-full h-full"
+              className="snap-center shrink-0 w-full"
             >
               <TiltCard glowColor={`${member.color}25`} className="h-full">
-                <div className="group block h-full window-frame p-6 md:p-8 flex flex-col overflow-hidden">
+                <div className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px]">
                   <div className="flex items-start justify-between mb-6">
                     <div
                       className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
