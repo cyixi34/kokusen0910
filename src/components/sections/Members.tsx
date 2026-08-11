@@ -53,21 +53,13 @@ export function MembersSection() {
     isDragging.current = false;
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08 },
-    },
-  };
-
   const cardVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 48, scale: 0.92 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { type: "spring" as const, stiffness: 90, damping: 13 },
+      transition: { type: "spring" as const, stiffness: 90, damping: 14 },
     },
   };
 
@@ -106,13 +98,9 @@ export function MembersSection() {
           </div>
         </div>
 
-        <motion.div
+        <div
           ref={scrollerRef}
           id="members-scroller"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerEnd}
@@ -125,7 +113,10 @@ export function MembersSection() {
               id={member.id}
               data-member-card
               variants={cardVariants}
-              className="snap-center shrink-0 w-[80%] sm:w-[400px] lg:w-[430px]"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.55 }}
+              className="snap-center shrink-0 w-[85%] sm:w-[420px] lg:w-[460px]"
             >
               <TiltCard glowColor={`${member.color}25`} className="h-full">
                 <div className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px]">
@@ -171,7 +162,7 @@ export function MembersSection() {
               </TiltCard>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

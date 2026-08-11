@@ -144,13 +144,6 @@ export function HeroSection() {
           ))}
         </motion.div>
       </motion.div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-muted/60 text-xs tracking-[0.3em] font-bold">
-        <span>SCROLL</span>
-        <div className="w-6 h-10 rounded-full border-2 border-muted/40 flex justify-center pt-2">
-          <div className="w-1 h-2 bg-accent rounded-full animate-bounce" />
-        </div>
-      </div>
     </section>
   );
 }
