@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/sections/Hero";
 import { AboutSection } from "@/components/sections/About";
 import { MembersSection } from "@/components/sections/Members";
 import { GuestbookSection } from "@/components/sections/Guestbook";
+import { AboutUsSection } from "@/components/sections/AboutUs";
 import { ContactSection } from "@/components/sections/Contact";
 import { Footer } from "@/components/ui/Footer";
 
@@ -23,6 +24,9 @@ export default function Home() {
       </SectionReveal>
       <SectionReveal delay={0.1}>
         <GuestbookSection />
+      </SectionReveal>
+      <SectionReveal delay={0.1}>
+        <AboutUsSection />
       </SectionReveal>
       <SectionReveal delay={0.1}>
         <ContactSection />

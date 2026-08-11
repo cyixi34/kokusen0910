@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { members } from "@/content/band";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { ArrowUpRight } from "lucide-react";
 
 export function MembersSection() {
   const containerVariants = {
@@ -45,12 +43,14 @@ export function MembersSection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {members.map((member) => (
-            <motion.div key={member.id} variants={cardVariants}>
+            <motion.div
+              key={member.id}
+              id={member.id}
+              variants={cardVariants}
+              className="scroll-mt-28"
+            >
               <TiltCard glowColor={`${member.color}25`} className="h-full">
-                <Link
-                  href={`/members/${member.id}`}
-                  className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px] hover:border-accent/40 transition-all duration-300"
-                >
+                <div className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px]">
                   <div className="flex items-start justify-between mb-6">
                     <div
                       className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
@@ -61,11 +61,6 @@ export function MembersSection() {
                       }}
                     >
                       {member.name[0]}
-                    </div>
-                    <div
-                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted group-hover:text-accent group-hover:border-accent transition-colors"
-                    >
-                      <ArrowUpRight size={16} />
                     </div>
                   </div>
 
@@ -88,13 +83,13 @@ export function MembersSection() {
                     {member.description}
                   </p>
 
-                  <div className="mt-6 pt-5 border-t border-border/60 flex items-center justify-between">
-                    <span className="text-xs tracking-[0.15em] text-muted font-bold group-hover:text-accent transition-colors">
-                      VIEW PROFILE
-                    </span>
-                    <span className="text-xs text-muted">→</span>
+                  <div className="mt-6 pt-5 border-t border-border/60">
+                    <div
+                      className="h-1 w-16 rounded-full"
+                      style={{ backgroundColor: member.color }}
+                    />
                   </div>
-                </Link>
+                </div>
               </TiltCard>
             </motion.div>
           ))}

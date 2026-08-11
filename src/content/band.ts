@@ -35,7 +35,7 @@ export const members: Member[] = [
     role: "主唱",
     description:
       "声音如同深夜里的微光，既能撕裂沉默，也能温柔拥抱所有疲惫。她是乐队情绪的出口，把每一句歌词都唱成一次告白。",
-    color: "#2dd4bf",
+    color: "#2563eb",
   },
   {
     id: "atsuka",
@@ -51,7 +51,7 @@ export const members: Member[] = [
     role: "节奏吉他",
     description:
       "节奏吉他是乐队的骨架，LazyJAM 用稳定的律动托起每一次情绪起伏，让 chaos 也有了秩序。",
-    color: "#34d399",
+    color: "#4db4ff",
   },
   {
     id: "ziyu",
@@ -67,7 +67,7 @@ export const members: Member[] = [
     role: "键盘",
     description:
       "合成器与钢琴在她手中切换，用冷峻的电子音色与温暖的古典和声，编织出属于告别宣言的声景。",
-    color: "#5eead4",
+    color: "#7dd3fc",
   },
   {
     id: "hudiesha",
@@ -75,6 +75,6 @@ export const members: Member[] = [
     role: "贝斯",
     description:
       "低音是她存在的证明。不喧哗，却让整首歌拥有了重量与方向。她的贝斯线像一条暗河，静默却有力。",
-    color: "#22d3ee",
+    color: "#1d7fe8",
   },
 ];

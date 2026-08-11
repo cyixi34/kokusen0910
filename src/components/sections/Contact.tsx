@@ -1,15 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { band } from "@/content/band";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, Copy, Check } from "lucide-react";
 
 export function ContactSection() {
-  const socialLabels: Record<string, string> = {
-    weibo: "微博",
-    bilibili: "B站",
-    netease: "网易云",
-    xiaohongshu: "小红书",
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(band.contact.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (
@@ -31,12 +37,13 @@ export function ContactSection() {
           </h2>
 
           <p className="text-muted-light leading-relaxed max-w-xl mx-auto mb-12">
-            无论是演出邀约、媒体合作，还是单纯想和我们聊聊音乐，都可以通过以下方式联系。
+            无论是演出邀约、媒体合作，还是单纯想和我们聊聊音乐，都可以通过邮箱联系我们。
           </p>
 
-          <a
-            href={`mailto:${band.contact.email}`}
-            className="group inline-flex items-center gap-4 window-frame px-8 py-5 hover:border-accent/40 transition-all duration-300 mb-10"
+          <button
+            onClick={handleCopy}
+            className="group inline-flex items-center gap-4 window-frame px-8 py-5 hover:border-accent/40 transition-all duration-300 mb-10 mx-auto text-left"
+            aria-label="复制邮箱地址"
           >
             <div className="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center text-background-deep shadow-lg group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6" />
@@ -47,21 +54,26 @@ export function ContactSection() {
                 {band.contact.email}
               </p>
             </div>
-            <ArrowRight className="w-5 h-5 text-muted group-hover:text-accent group-hover:translate-x-1 transition-all" />
-          </a>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {Object.entries(band.social).map(([key, value]) => (
-              <a
-                key={key}
-                href={value}
-                className="group flex items-center gap-2 px-5 py-3 rounded-full bg-background-soft border border-border text-sm font-bold text-muted hover:text-accent hover:border-accent hover:bg-accent/10 hover:-translate-y-1 transition-all duration-300"
-              >
-                <span>{socialLabels[key] || key}</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            ))}
-          </div>
+            <span
+              className={`flex items-center gap-1 text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${
+                copied
+                  ? "bg-accent/20 text-accent"
+                  : "bg-background-soft text-muted group-hover:text-accent"
+              }`}
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5" />
+                  已复制
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  复制
+                </>
+              )}
+            </span>
+          </button>
         </motion.div>
       </div>
     </section>

@@ -26,10 +26,10 @@ export function Atmosphere() {
     }> = [];
 
     const colors = [
-      "200, 230, 255",
-      "45, 212, 191",
-      "56, 189, 248",
-      "94, 234, 212",
+      "45, 140, 240",
+      "96, 180, 255",
+      "130, 205, 255",
+      "30, 110, 210",
     ];
 
     const resize = () => {
@@ -47,7 +47,7 @@ export function Atmosphere() {
           size: Math.random() * 2.5 + 0.5,
           speedY: Math.random() * -0.25 - 0.05,
           speedX: (Math.random() - 0.5) * 0.15,
-          opacity: Math.random() * 0.4 + 0.1,
+          opacity: Math.random() * 0.2 + 0.04,
           color: colors[Math.floor(Math.random() * colors.length)],
           rotation: Math.random() * Math.PI * 2,
           rotationSpeed: (Math.random() - 0.5) * 0.02,
@@ -116,25 +116,57 @@ export function Atmosphere() {
     };
   }, []);
 
+  const clouds = [
+    { top: "6%", left: "6%", width: 230, height: 82, opacity: 0.55, dur: 38, delay: -15 },
+    { top: "13%", left: "52%", width: 300, height: 105, opacity: 0.5, dur: 52, delay: -38 },
+    { top: "22%", left: "76%", width: 250, height: 88, opacity: 0.46, dur: 44, delay: -28 },
+    { top: "34%", left: "14%", width: 270, height: 92, opacity: 0.45, dur: 48, delay: -30 },
+    { top: "46%", left: "62%", width: 210, height: 74, opacity: 0.5, dur: 34, delay: -18 },
+    { top: "58%", left: "30%", width: 290, height: 100, opacity: 0.42, dur: 56, delay: -40 },
+    { top: "70%", left: "8%", width: 240, height: 84, opacity: 0.4, dur: 42, delay: -22 },
+    { top: "80%", left: "55%", width: 260, height: 90, opacity: 0.38, dur: 46, delay: -30 },
+  ];
+
   return (
     <>
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-[40] opacity-70"
+        className="fixed inset-0 pointer-events-none z-[40] opacity-60"
       />
+
+      {/* Clouds — continuous linear drift across the screen, behind content */}
+      {clouds.map((cloud, i) => (
+        <div
+          key={i}
+          className="cloud-drift fixed pointer-events-none -z-10"
+          style={{
+            top: cloud.top,
+            left: cloud.left,
+            opacity: cloud.opacity,
+            animationDuration: `${cloud.dur}s`,
+            animationDelay: `${cloud.delay}s`,
+          }}
+        >
+          <div className="relative" style={{ width: cloud.width, height: cloud.height }}>
+            <div className="absolute left-0 bottom-0 w-[70%] h-[60%] rounded-full bg-white blur-xl" />
+            <div className="absolute left-[35%] bottom-[10%] w-[55%] h-[80%] rounded-full bg-white blur-xl" />
+            <div className="absolute left-[62%] bottom-0 w-[48%] h-[55%] rounded-full bg-white blur-xl" />
+          </div>
+        </div>
+      ))}
 
       {/* Soft vignette */}
       <div
         className="fixed inset-0 pointer-events-none z-[35]"
         style={{
           background:
-            "radial-gradient(circle at 50% 40%, transparent 0%, transparent 45%, rgba(7, 13, 24, 0.5) 100%)",
+            "radial-gradient(circle at 50% 35%, transparent 0%, transparent 45%, rgba(29, 127, 232, 0.05) 100%)",
         }}
       />
 
       {/* Top/bottom soft bars */}
-      <div className="fixed inset-x-0 top-0 h-20 bg-gradient-to-b from-background-deep/60 to-transparent pointer-events-none z-[36]" />
-      <div className="fixed inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background-deep/60 to-transparent pointer-events-none z-[36]" />
+      <div className="fixed inset-x-0 top-0 h-20 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-[36]" />
+      <div className="fixed inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-[36]" />
     </>
   );
 }

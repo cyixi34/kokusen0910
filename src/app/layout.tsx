@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Atmosphere } from "@/components/ui/Atmosphere";
 import { PageTransition } from "@/components/ui/PageTransition";
 import "./globals.css";
@@ -40,7 +39,6 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background text-foreground" suppressHydrationWarning>
         <SmoothScrollProvider>
-          <CustomCursor />
           <Atmosphere />
           <PageTransition>
             {children}

@@ -12,7 +12,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 px-6 border-t border-border/60 bg-background-deep/50">
+    <footer className="py-12 px-6 border-t border-border/60 bg-background-soft/60">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
           <p className="text-lg font-black text-foreground tracking-tight">{band.name}</p>

@@ -135,7 +135,7 @@ export function HeroSection() {
           {members.map((member) => (
             <a
               key={member.id}
-              href="#members"
+              href={`#${member.id}`}
               className="w-12 h-12 rounded-full border-2 border-background flex items-center justify-center text-sm font-black hover:scale-110 hover:z-10 transition-transform"
               style={{ backgroundColor: member.color, color: "#070d18" }}
             >

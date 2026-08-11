@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0b1220;
-  --color-background-deep: #070d18;
-  --color-background-card: #0f172a;
-  --color-background-soft: #162032;
-  --color-foreground: #f8fafc;
-  --color-muted: #64748b;
-  --color-muted-light: #94a3b8;
-  --color-muted-dark: #475569;
-  --color-accent: #2dd4bf;
-  --color-accent-2: #38bdf8;
-  --color-accent-3: #34d399;
-  --color-accent-glow: rgba(45, 212, 191, 0.2);
-  --color-border: #1e293b;
-  --color-border-light: #334155;
+  --color-background: #eef7ff;
+  --color-background-deep: #14447e;
+  --color-background-card: #ffffff;
+  --color-background-soft: #dceeff;
+  --color-foreground: #16324f;
+  --color-muted: #5d82a8;
+  --color-muted-light: #759ac0;
+  --color-muted-dark: #3f628b;
+  --color-accent: #1d7fe8;
+  --color-accent-2: #4db4ff;
+  --color-accent-3: #5ac8fa;
+  --color-accent-glow: rgba(29, 127, 232, 0.15);
+  --color-border: #cfe3fa;
+  --color-border-light: #b4d6f4;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --radius-2xl: 1rem;
@@ -23,20 +23,20 @@
 }
 
 :root {
-  --background: #0b1220;
-  --background-deep: #070d18;
-  --background-card: #0f172a;
-  --background-soft: #162032;
-  --foreground: #f8fafc;
-  --muted: #64748b;
-  --muted-light: #94a3b8;
-  --muted-dark: #475569;
-  --accent: #2dd4bf;
-  --accent-2: #38bdf8;
-  --accent-3: #34d399;
-  --accent-glow: rgba(45, 212, 191, 0.2);
-  --border: #1e293b;
-  --border-light: #334155;
+  --background: #eef7ff;
+  --background-deep: #14447e;
+  --background-card: #ffffff;
+  --background-soft: #dceeff;
+  --foreground: #16324f;
+  --muted: #5d82a8;
+  --muted-light: #759ac0;
+  --muted-dark: #3f628b;
+  --accent: #1d7fe8;
+  --accent-2: #4db4ff;
+  --accent-3: #5ac8fa;
+  --accent-glow: rgba(29, 127, 232, 0.15);
+  --border: #cfe3fa;
+  --border-light: #b4d6f4;
 }
 
 * {
@@ -48,7 +48,7 @@ html {
 }
 
 body {
-  background: radial-gradient(ellipse at 50% 0%, #122c42 0%, #0b1220 40%, #070d18 100%);
+  background: linear-gradient(180deg, #5fb2f3 0%, #a9d9fb 38%, #dcf0ff 70%, #ffffff 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   overflow-x: hidden;
@@ -97,19 +97,18 @@ html.lenis, html.lenis body {
 /* Soft pop card shadow */
 .pop-shadow {
   box-shadow:
-    0 8px 32px rgba(7, 13, 24, 0.4),
-    0 2px 8px rgba(45, 212, 191, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 8px 32px rgba(20, 68, 126, 0.12),
+    0 2px 8px rgba(29, 127, 232, 0.08);
 }
 
 /* Window frame like 18trip */
 .window-frame {
   border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(20, 68, 126, 0.1);
+  background: linear-gradient(180deg, #ffffff 0%, #f3faff 100%);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 20px 60px rgba(20, 68, 126, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
 
@@ -123,20 +122,25 @@ html.lenis, html.lenis body {
 
 /* Gradient accent text */
 .accent-gradient-text {
-  color: #2dd4bf;
-  background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #5eead4 100%);
+  color: #1d7fe8;
+  background: linear-gradient(135deg, #1d7fe8 0%, #4db4ff 50%, #7fd0ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Gradient accent fill (buttons, icons, progress bar) */
+.accent-gradient {
+  background: linear-gradient(135deg, #4db4ff 0%, #1d7fe8 100%);
+}
+
 /* Glow effects */
 .text-glow {
-  text-shadow: 0 0 30px rgba(45, 212, 191, 0.35), 0 0 60px rgba(56, 189, 248, 0.2);
+  text-shadow: 0 0 30px rgba(29, 127, 232, 0.25), 0 0 60px rgba(77, 180, 255, 0.2);
 }
 
 .pop-glow {
-  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.25), 0 8px 30px rgba(45, 212, 191, 0.15);
+  box-shadow: 0 0 0 1px rgba(29, 127, 232, 0.2), 0 8px 30px rgba(29, 127, 232, 0.12);
 }
 
 /* Floating animation */
@@ -174,17 +178,26 @@ html.lenis, html.lenis body {
     135deg,
     transparent,
     transparent 18px,
-    rgba(45, 212, 191, 0.08) 18px,
-    rgba(45, 212, 191, 0.08) 19px
+    rgba(29, 127, 232, 0.08) 18px,
+    rgba(29, 127, 232, 0.08) 19px
   );
 }
 
-/* Hide default cursor on desktop when custom cursor is active */
-@media (hover: hover) and (pointer: fine) {
-  body,
-  body * {
-    cursor: none !important;
+/* Continuous horizontal drift for clouds (linear, loops off-screen) */
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-60vw);
   }
+  to {
+    transform: translateX(140vw);
+  }
+}
+
+.cloud-drift {
+  animation-name: cloud-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 /* Scanline / retro display effect */
@@ -193,7 +206,7 @@ html.lenis, html.lenis body {
     0deg,
     transparent,
     transparent 2px,
-    rgba(56, 189, 248, 0.02) 2px,
-    rgba(56, 189, 248, 0.02) 4px
+    rgba(56, 189, 248, 0.03) 2px,
+    rgba(56, 189, 248, 0.03) 4px
   );
 }

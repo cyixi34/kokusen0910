@@ -47,12 +47,12 @@ export function Navigation() {
       <div className="max-w-5xl mx-auto bg-background-deep/80 backdrop-blur-xl rounded-full border border-border/60 px-4 md:px-6 h-14 flex items-center justify-between shadow-lg shadow-black/20">
         <Link
           href="#top"
-          className="text-sm tracking-[0.15em] font-black text-accent"
+          className="text-sm tracking-[0.15em] font-black text-white"
         >
           告别宣言
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1 bg-background-soft/60 rounded-full px-1.5 py-1">
+        <nav className="hidden md:flex items-center gap-1 bg-white/10 rounded-full px-1.5 py-1">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             return (
@@ -63,7 +63,7 @@ export function Navigation() {
                   "relative px-4 py-1.5 text-[11px] tracking-[0.05em] rounded-full transition-all duration-300 font-bold",
                   isActive
                     ? "text-background-deep bg-accent"
-                    : "text-muted hover:text-foreground"
+                    : "text-white/70 hover:text-white"
                 )}
               >
                 {item.label}
@@ -99,7 +99,7 @@ export function Navigation() {
                   "text-sm tracking-[0.1em] py-3 px-4 rounded-xl font-bold transition-colors",
                   isActive
                     ? "text-background-deep bg-accent"
-                    : "text-muted hover:text-foreground hover:bg-background-soft"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
                 )}
               >
                 {item.label}
