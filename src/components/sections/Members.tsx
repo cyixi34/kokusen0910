@@ -116,7 +116,7 @@ export function MembersSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.55 }}
-              className="snap-center shrink-0 w-[85%] sm:w-[420px] lg:w-[460px]"
+              className="snap-center shrink-0 w-full sm:w-[420px] lg:w-[460px]"
             >
               <TiltCard glowColor={`${member.color}25`} className="h-full">
                 <div className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px]">
