@@ -105,7 +105,7 @@ export function MembersSection() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerEnd}
           onPointerLeave={handlePointerEnd}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 sm:mx-auto sm:px-0 sm:max-w-[480px] thin-scrollbar cursor-grab active:cursor-grabbing select-none"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 sm:mx-auto sm:px-0 sm:max-w-[480px] no-scrollbar cursor-grab active:cursor-grabbing select-none"
         >
           {members.map((member) => (
             <motion.div
