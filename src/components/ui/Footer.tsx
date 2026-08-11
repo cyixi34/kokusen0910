@@ -1,5 +1,4 @@
 import { band } from "@/content/band";
-import { Heart } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -31,12 +30,6 @@ export function Footer() {
               {socialLabels[key] || key}
             </a>
           ))}
-        </div>
-
-        <div className="flex items-center gap-1.5 text-xs text-muted">
-          <span>Made with</span>
-          <Heart className="w-3.5 h-3.5 text-accent fill-accent" />
-          <span>in HAMA</span>
         </div>
       </div>
     </footer>
