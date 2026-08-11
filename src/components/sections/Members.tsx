@@ -105,7 +105,7 @@ export function MembersSection() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerEnd}
           onPointerLeave={handlePointerEnd}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 thin-scrollbar cursor-grab active:cursor-grabbing select-none"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 sm:mx-auto sm:px-0 sm:max-w-[480px] thin-scrollbar cursor-grab active:cursor-grabbing select-none"
         >
           {members.map((member) => (
             <motion.div
@@ -116,7 +116,7 @@ export function MembersSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.55 }}
-              className="snap-center shrink-0 w-full sm:w-[420px] lg:w-[460px]"
+              className="snap-center shrink-0 w-full"
             >
               <TiltCard glowColor={`${member.color}25`} className="h-full">
                 <div className="group block h-full window-frame p-6 md:p-8 flex flex-col min-h-[360px]">
