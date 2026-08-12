@@ -8,6 +8,8 @@ const channels = [
     title: "粉丝群",
     caption: "扫码进群，和告别宣言的乐迷们一起聊天",
     image: qrFanGroup,
+    width: 1284,
+    height: 2283,
     icon: <Users size={14} />,
     replaceHint: "public/fans.jpg",
   },
@@ -15,6 +17,8 @@ const channels = [
     title: "B站账号",
     caption: "扫码关注 B 站账号，获取最新动态与现场视频",
     image: qrBilibili,
+    width: 1106,
+    height: 1572,
     icon: <Tv size={14} />,
     replaceHint: "public/bfans.png",
   },
@@ -46,9 +50,9 @@ export function AboutUsSection() {
               <Image
                 src={channel.image}
                 alt={`${channel.title}二维码`}
-                width={600}
-                height={600}
-                className="w-56 h-56 md:w-64 md:h-64 rounded-2xl mb-6"
+                width={channel.width}
+                height={channel.height}
+                className="w-52 md:w-60 h-auto rounded-2xl mb-6"
               />
               <h3 className="flex items-center justify-center gap-2 text-lg text-foreground font-black mb-2">
                 <span className="text-accent">{channel.icon}</span>
