@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/ui/Navigation";
+import { FloatingDecor } from "@/components/ui/FloatingDecor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { SectionReveal } from "@/components/ui/SectionReveal";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/ui/Footer";
 export default function Home() {
   return (
     <main className="relative">
+      <FloatingDecor />
       <ScrollProgress />
       <Navigation />
       <HeroSection />
