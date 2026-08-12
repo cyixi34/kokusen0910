@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Users, Tv } from "lucide-react";
-import qrFanGroup from "../../../public/qr-fan-group.svg";
-import qrBilibili from "../../../public/qr-bilibili.svg";
+import qrFanGroup from "../../../public/fans.jpg";
+import qrBilibili from "../../../public/bfans.png";
 
 const channels = [
   {
@@ -9,14 +9,14 @@ const channels = [
     caption: "扫码进群，和告别宣言的乐迷们一起聊天",
     image: qrFanGroup,
     icon: <Users size={14} />,
-    replaceHint: "public/qr-fan-group.svg",
+    replaceHint: "public/fans.jpg",
   },
   {
     title: "B站账号",
     caption: "扫码关注 B 站账号，获取最新动态与现场视频",
     image: qrBilibili,
     icon: <Tv size={14} />,
-    replaceHint: "public/qr-bilibili.svg",
+    replaceHint: "public/bfans.png",
   },
 ];
 

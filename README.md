@@ -18,7 +18,7 @@
 - 每个 section 进入视口时的滚动触发动画
 - 成员介绍卡片网格（点击首屏头像可平滑滚动到对应成员卡片）
 - 留言板（展示二维码图片，指向外部平台；图片为 `public/qr-placeholder.svg`，替换文件即可更新）
-- 关于我们（粉丝群 + B站账号二维码，图片为 `public/qr-fan-group.svg` / `public/qr-bilibili.svg`）
+- 关于我们（粉丝群 + B站账号二维码，图片为 `public/fans.jpg` / `public/bfans.png`）
 - 联系方式（仅邮箱，静态展示 + 一键复制，无跳转链接）
 
 ## 本地开发
@@ -34,7 +34,7 @@ npm run dev
 
 - 乐队名称、成员、新闻、音乐、演出等内容都在 `src/content/band.ts` 中修改。
 - 留言板二维码图片在 `public/qr-placeholder.svg`，替换成你的二维码文件即可（保持同名无需改代码）。
-- 关于我们区的粉丝群 / B站二维码分别在 `public/qr-fan-group.svg`、`public/qr-bilibili.svg`。
+- 关于我们区的粉丝群 / B站二维码分别在 `public/fans.jpg`、`public/bfans.png`。
 
 ## 部署
 
