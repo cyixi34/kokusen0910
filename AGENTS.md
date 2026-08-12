@@ -27,7 +27,7 @@ No `.env` or database setup needed.
 ## Architecture
 
 - Single-page app entry is `src/app/page.tsx`, which renders `HeroSection`, `AboutSection`, `MembersSection`, `GuestbookSection`, `AboutUsSection`, `ContactSection`, and `Footer` from `src/components/sections/`.
-- The guestbook is fully static (no database): `src/components/sections/Guestbook.tsx` displays a QR code image (`public/qr-placeholder.svg`) that links to an external platform. Replace the image file to swap the QR code.
+- The guestbook is fully static (no database): `src/components/sections/Guestbook.tsx` displays a QR code image (`public/qanda.png`) that links to an external platform. Replace the image file to swap the QR code.
 - `AboutUsSection` (关于我们) shows two QR images — fan group (`public/fans.jpg`) and Bilibili account (`public/bfans.png`). `ContactSection` is email-only with a copy-to-clipboard button; no navigation links.
 - `MembersSection` is a horizontal snap-scrolling carousel (mouse-drag + arrow buttons), not a grid; each card carries `id={member.id}`. Clicking a hero mini avatar is intercepted by a document-level click listener in `Members.tsx` that scrolls the carousel to that card. Lenis `anchors: true` handles only section anchors (`#about`, `#members`, etc.).
 - Band content (name, tagline, description, story, contact/social links, members) is in `src/content/band.ts`.

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MessageSquare } from "lucide-react";
-import qrPlaceholder from "../../../public/qr-placeholder.svg";
+import qrPlaceholder from "../../../public/qanda.png";
 
 export function GuestbookSection() {
   return (

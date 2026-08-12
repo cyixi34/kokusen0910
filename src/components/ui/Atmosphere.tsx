@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Music, Music2, Sparkles } from "lucide-react";
+import { SunflowerIcon } from "@/components/ui/SunflowerIcon";
 
 export function Atmosphere() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -127,6 +129,28 @@ export function Atmosphere() {
     { top: "80%", left: "55%", width: 260, height: 90, opacity: 0.38, dur: 46, delay: -30 },
   ];
 
+  type DecorationKind = "sunflower" | "music" | "music2" | "sparkle";
+
+  const decorations: Array<{
+    kind: DecorationKind;
+    top: string;
+    left?: string;
+    right?: string;
+    box: number;
+    size: number;
+    delay: string;
+  }> = [
+    { kind: "sunflower", top: "9%", left: "3%", box: 56, size: 26, delay: "0s" },
+    { kind: "music", top: "16%", right: "5%", box: 44, size: 22, delay: "1.4s" },
+    { kind: "sparkle", top: "25%", left: "12%", box: 36, size: 16, delay: "0.8s" },
+    { kind: "music2", top: "34%", left: "2%", box: 40, size: 18, delay: "2s" },
+    { kind: "sunflower", top: "42%", right: "3%", box: 48, size: 22, delay: "0.6s" },
+    { kind: "music", top: "58%", left: "4%", box: 52, size: 24, delay: "1.8s" },
+    { kind: "sparkle", top: "66%", right: "4%", box: 40, size: 18, delay: "0.2s" },
+    { kind: "music2", top: "80%", left: "2%", box: 40, size: 18, delay: "2.4s" },
+    { kind: "sunflower", top: "86%", right: "6%", box: 56, size: 26, delay: "1s" },
+  ];
+
   return (
     <>
       <canvas
@@ -154,6 +178,42 @@ export function Atmosphere() {
           </div>
         </div>
       ))}
+
+      {/* Floating sunflower / music-note / sparkle stickers along the page edges */}
+      {decorations.map((d, i) => {
+        const Icon =
+          d.kind === "music"
+            ? Music
+            : d.kind === "music2"
+              ? Music2
+              : d.kind === "sparkle"
+                ? Sparkles
+                : null;
+        return (
+          <div
+            key={i}
+            className={`sticker fixed pointer-events-none hidden md:flex ${i % 2 ? "animate-float-delayed" : "animate-float"}`}
+            style={{
+              top: d.top,
+              left: d.left,
+              right: d.right,
+              width: d.box,
+              height: d.box,
+              backgroundColor: "rgba(255, 255, 255, 0.55)",
+              border: "1px solid rgba(29, 127, 232, 0.25)",
+              color: "#1d7fe8",
+              boxShadow: "0 8px 24px rgba(20, 68, 126, 0.1)",
+              animationDelay: d.delay,
+            }}
+          >
+            {d.kind === "sunflower" ? (
+              <SunflowerIcon size={d.size} />
+            ) : Icon ? (
+              <Icon size={d.size} strokeWidth={2.2} />
+            ) : null}
+          </div>
+        );
+      })}
 
       {/* Soft vignette */}
       <div
