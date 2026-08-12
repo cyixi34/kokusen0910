@@ -69,7 +69,7 @@ export function AboutSection() {
                 alt="告别宣言乐队视觉"
                 width={1742}
                 height={2622}
-                className="w-full h-full object-contain mix-blend-screen"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
