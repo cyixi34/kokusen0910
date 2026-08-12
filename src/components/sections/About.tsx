@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { band } from "@/content/band";
 import { LilyIcon } from "@/components/ui/LilyIcon";
 import { Music2, Heart } from "lucide-react";
+import kokusen from "../../../public/kokusen.png";
 
 export function AboutSection() {
   return (
@@ -54,7 +56,7 @@ export function AboutSection() {
           </div>
 
           <div className="relative">
-            <div className="window-frame aspect-[4/5] p-6 flex items-center justify-center relative overflow-visible">
+            <div className="window-frame aspect-[2/3] p-6 flex items-center justify-center relative overflow-visible">
               <div className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center text-accent rotate-12 animate-float">
                 <Music2 size={32} />
               </div>
@@ -62,12 +64,13 @@ export function AboutSection() {
                 <Heart size={24} />
               </div>
 
-              <div className="text-center">
-                <div className="text-[10rem] md:text-[12rem] leading-none font-black accent-gradient-text opacity-90">
-                  告
-                </div>
-                <p className="text-xs tracking-[0.3em] text-muted mt-4">BAND VISUAL</p>
-              </div>
+              <Image
+                src={kokusen}
+                alt="告别宣言乐队视觉"
+                width={1742}
+                height={2622}
+                className="w-full h-full object-contain mix-blend-screen"
+              />
             </div>
           </div>
         </div>
