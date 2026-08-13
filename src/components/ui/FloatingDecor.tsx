@@ -2,7 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { Music, Music2, Music3, Sparkles } from "lucide-react";
-import { PetalBurst, createBurst, type Burst } from "@/components/ui/PetalBurst";
+import { PetalBurst, createBurst, type Burst, type BurstKind } from "@/components/ui/PetalBurst";
 
 type DecorKind = "sunflower" | "music" | "music2" | "music3" | "sparkle";
 
@@ -27,6 +27,9 @@ const decorations: Decor[] = [
   { kind: "music", top: "79%", side: "right", offset: "4%", box: 44, icon: 20, delay: "0.9s" },
   { kind: "sunflower", top: "89%", side: "left", offset: "4%", box: 52, icon: 22, delay: "2.4s" },
 ];
+
+const burstKindFor = (kind: DecorKind): BurstKind =>
+  kind === "sunflower" ? "flower" : kind === "sparkle" ? "sparkle" : "music";
 
 function SunflowerStroke({ size }: { size: number }) {
   return (
@@ -66,7 +69,12 @@ export function FloatingDecor() {
     if (!orb) return;
 
     const rect = orb.getBoundingClientRect();
-    const burst = createBurst(nextId.current++, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    const burst = createBurst(
+      burstKindFor(decorations[index].kind),
+      nextId.current++,
+      rect.left + rect.width / 2,
+      rect.top + rect.height / 2
+    );
 
     setBursts((prev) => [...prev, burst]);
     window.setTimeout(() => {
