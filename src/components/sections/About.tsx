@@ -18,34 +18,32 @@ export function AboutSection() {
         </div>
 
         <div className="flex flex-col items-center gap-10 lg:gap-12">
-          <div className="relative w-full max-w-xl">
-            <div className="window-frame relative overflow-visible">
-              <div className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center text-accent rotate-12 animate-float">
-                <Music2 size={32} />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-accent-2/20 border border-accent-2/30 flex items-center justify-center text-accent-2 -rotate-12 animate-float-delayed">
-                <Heart size={24} />
-              </div>
-
-              <Image
-                src={kokusen}
-                alt="告别宣言乐队视觉"
-                width={2024}
-                height={1028}
-                className="w-full h-auto block rounded-4xl"
-              />
+          <div className="window-frame relative overflow-visible w-full max-w-xl">
+            <div className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center text-accent rotate-12 animate-float">
+              <Music2 size={32} />
             </div>
-          </div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-accent-2/20 border border-accent-2/30 flex items-center justify-center text-accent-2 -rotate-12 animate-float-delayed">
+              <Heart size={24} />
+            </div>
 
-          <div className="text-center">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-4">
-              关于
-              <br />
-              <span className="accent-gradient-text">告别宣言</span>
-            </h2>
-            <p className="text-sm text-muted-light tracking-wider">
-              用音乐记录每一次未说出口的告别
-            </p>
+            <Image
+              src={kokusen}
+              alt="告别宣言乐队视觉"
+              width={2024}
+              height={1028}
+              className="w-full h-auto block rounded-t-4xl"
+            />
+
+            <div className="text-center px-6 pb-8 pt-6 md:px-8">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-4">
+                关于
+                <br />
+                <span className="accent-gradient-text">告别宣言</span>
+              </h2>
+              <p className="text-sm text-muted-light tracking-wider">
+                用音乐记录每一次未说出口的告别
+              </p>
+            </div>
           </div>
 
           <div className="window-frame p-6 md:p-8 space-y-5 w-full max-w-3xl">
