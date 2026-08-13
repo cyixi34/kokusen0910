@@ -67,8 +67,8 @@ export function AboutSection() {
               <Image
                 src={kokusen}
                 alt="告别宣言乐队视觉"
-                width={1742}
-                height={2622}
+                width={2024}
+                height={1028}
                 className="w-full h-auto block rounded-4xl"
               />
             </div>
