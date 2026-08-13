@@ -15,8 +15,8 @@
   --color-accent-glow: rgba(29, 127, 232, 0.15);
   --color-border: #cfe3fa;
   --color-border-light: #b4d6f4;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-kaiti);
+  --font-mono: var(--font-kaiti);
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;
@@ -50,7 +50,7 @@ html {
 body {
   background: linear-gradient(180deg, #5fb2f3 0%, #a9d9fb 38%, #dcf0ff 70%, #ffffff 100%);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-kaiti), system-ui, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -170,6 +170,70 @@ html.lenis, html.lenis body {
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+/* Ticket-shaped nav bar with punched ends */
+.nav-ticket {
+  --ticket-hole: 9px;
+  border-radius: 14px;
+  -webkit-mask:
+    radial-gradient(circle var(--ticket-hole) at 0 50%, transparent 99%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--ticket-hole) at 100% 50%, transparent 99%, #000) right / 51% 100% no-repeat,
+    linear-gradient(#000, #000) center / 98% 100% no-repeat;
+  mask:
+    radial-gradient(circle var(--ticket-hole) at 0 50%, transparent 99%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--ticket-hole) at 100% 50%, transparent 99%, #000) right / 51% 100% no-repeat,
+    linear-gradient(#000, #000) center / 98% 100% no-repeat;
+}
+
+/* Slowly rotating gradient border (2px) around the nav bar */
+.nav-ring {
+  --nav-ring-angle: 0deg;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--nav-ring-angle),
+    #4db4ff,
+    #7fd0ff,
+    #1d7fe8,
+    #38bdf8,
+    #4db4ff
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: nav-ring-spin 8s linear infinite;
+  pointer-events: none;
+}
+
+@property --nav-ring-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes nav-ring-spin {
+  to {
+    --nav-ring-angle: 360deg;
+  }
+}
+
+/* Gentle idle bob for the fixed nav bar */
+.nav-bob {
+  animation: nav-bob 7s ease-in-out infinite;
+}
+
+@keyframes nav-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 /* Diagonal decorative lines */

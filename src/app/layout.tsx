@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import { Atmosphere } from "@/components/ui/Atmosphere";
 import { PageTransition } from "@/components/ui/PageTransition";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  preload: false,
+const kaitiFont = localFont({
+  src: "./fonts/zhangxiluo-fusheng-kaiti.ttf",
+  variable: "--font-kaiti",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${kaitiFont.variable} antialiased`}
     >
       <body className="min-h-screen bg-background text-foreground" suppressHydrationWarning>
         <SmoothScrollProvider>
