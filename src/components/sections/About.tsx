@@ -56,7 +56,7 @@ export function AboutSection() {
           </div>
 
           <div className="relative">
-            <div className="window-frame aspect-[2/3] p-6 flex items-center justify-center relative overflow-visible">
+            <div className="window-frame relative overflow-visible">
               <div className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center text-accent rotate-12 animate-float">
                 <Music2 size={32} />
               </div>
@@ -69,7 +69,7 @@ export function AboutSection() {
                 alt="告别宣言乐队视觉"
                 width={1742}
                 height={2622}
-                className="w-full h-full object-contain"
+                className="w-full h-auto block rounded-4xl"
               />
             </div>
           </div>
