@@ -8,6 +8,7 @@ import "./globals.css";
 const feibaiFont = localFont({
   src: "./fonts/tsanger-feibai-w01.ttf",
   variable: "--font-feibai",
+  display: "block",
 });
 
 export const metadata: Metadata = {

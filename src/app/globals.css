@@ -284,3 +284,44 @@ html.lenis, html.lenis body {
     rgba(56, 189, 248, 0.03) 4px
   );
 }
+
+/* Click-to-bloom petal burst */
+.petal-bloom {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: petal-bloom var(--dur) cubic-bezier(0.22, 0.8, 0.36, 1) var(--delay) forwards;
+}
+
+@keyframes petal-bloom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(0.2);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) rotate(var(--spin)) scale(1);
+  }
+}
+
+.burst-flash {
+  position: fixed;
+  z-index: 59;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(77, 180, 255, 0.45) 40%, transparent 72%);
+  transform: translate(-50%, -50%) scale(0.15);
+  animation: burst-flash 0.75s ease-out forwards;
+}
+
+@keyframes burst-flash {
+  to {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
+}

@@ -1,4 +1,8 @@
+"use client";
+
+import { useCallback, useRef, useState } from "react";
 import { Music, Music2, Music3, Sparkles } from "lucide-react";
+import { PetalBurst, createBurst, type Burst } from "@/components/ui/PetalBurst";
 
 type DecorKind = "sunflower" | "music" | "music2" | "music3" | "sparkle";
 
@@ -53,6 +57,23 @@ function SunflowerStroke({ size }: { size: number }) {
 }
 
 export function FloatingDecor() {
+  const [bursts, setBursts] = useState<Burst[]>([]);
+  const nextId = useRef(0);
+  const orbRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  const handleClick = useCallback((index: number) => {
+    const orb = orbRefs.current[index];
+    if (!orb) return;
+
+    const rect = orb.getBoundingClientRect();
+    const burst = createBurst(nextId.current++, rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+    setBursts((prev) => [...prev, burst]);
+    window.setTimeout(() => {
+      setBursts((prev) => prev.filter((b) => b.id !== burst.id));
+    }, 1600);
+  }, []);
+
   return (
     <>
       {decorations.map((d, i) => {
@@ -67,9 +88,15 @@ export function FloatingDecor() {
                   ? Sparkles
                   : null;
         return (
-          <div
+          <button
             key={i}
-            className={`sticker absolute pointer-events-none z-30 ${i % 2 ? "animate-float-delayed" : "animate-float"}`}
+            ref={(el) => {
+              orbRefs.current[i] = el;
+            }}
+            type="button"
+            aria-label="点击绽放花瓣"
+            onClick={() => handleClick(i)}
+            className={`sticker absolute z-30 cursor-pointer p-0 transition-all duration-300 hover:scale-110 active:scale-90 focus:outline-none ${i % 2 ? "animate-float-delayed" : "animate-float"}`}
             style={{
               top: d.top,
               left: d.side === "left" ? d.offset : "auto",
@@ -88,9 +115,13 @@ export function FloatingDecor() {
             ) : Icon ? (
               <Icon size={d.icon} strokeWidth={2.2} />
             ) : null}
-          </div>
+          </button>
         );
       })}
+
+      {bursts.map((burst) => (
+        <PetalBurst key={burst.id} burst={burst} />
+      ))}
     </>
   );
 }
