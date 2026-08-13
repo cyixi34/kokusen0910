@@ -15,8 +15,8 @@
   --color-accent-glow: rgba(29, 127, 232, 0.15);
   --color-border: #cfe3fa;
   --color-border-light: #b4d6f4;
-  --font-sans: var(--font-kaiti);
-  --font-mono: var(--font-kaiti);
+  --font-sans: var(--font-feibai);
+  --font-mono: var(--font-feibai);
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;
@@ -50,7 +50,7 @@ html {
 body {
   background: linear-gradient(180deg, #5fb2f3 0%, #a9d9fb 38%, #dcf0ff 70%, #ffffff 100%);
   color: var(--foreground);
-  font-family: var(--font-kaiti), system-ui, sans-serif;
+  font-family: var(--font-feibai), system-ui, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
 }

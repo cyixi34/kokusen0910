@@ -5,9 +5,9 @@ import { Atmosphere } from "@/components/ui/Atmosphere";
 import { PageTransition } from "@/components/ui/PageTransition";
 import "./globals.css";
 
-const kaitiFont = localFont({
-  src: "./fonts/zhangxiluo-fusheng-kaiti.ttf",
-  variable: "--font-kaiti",
+const feibaiFont = localFont({
+  src: "./fonts/tsanger-feibai-w01.ttf",
+  variable: "--font-feibai",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${kaitiFont.variable} antialiased`}
+      className={`${feibaiFont.variable} antialiased`}
     >
       <body className="min-h-screen bg-background text-foreground" suppressHydrationWarning>
         <SmoothScrollProvider>
