@@ -6,9 +6,9 @@ import { PageTransition } from "@/components/ui/PageTransition";
 import "./globals.css";
 
 const feibaiFont = localFont({
-  src: "./fonts/tsanger-feibai-w01.ttf",
+  src: "./fonts/tsanger-feibai-w01.woff2",
   variable: "--font-feibai",
-  display: "block",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
